@@ -27,7 +27,7 @@ var app = app || {};
       $('#fb-sign-out-button').on('click', false, app.signOut);
       // List
       $('#fb-add-post-button').on('click', false, app.addPost);
-      $('#fb-test-button').on('click', false, app.testGoogleDrive);
+      $('#fb-test-button').on('click', false, app.testMasonry);
       $('#fb-read-next-button').on('click', {reset: false}, app.searchPosts);
       $(document).on('click', '.fb-google-title', app.googleSearch);
       $(document).on('click', '.fb-nyaa', app.nyaaSearch);
@@ -68,6 +68,10 @@ var app = app || {};
       $(document).on('click', '.fb-select-google-folder', app.selectGoogleFolder);
       // Settings Dialog
       $('#fb-save-settings-button').on('click', app.saveSettings);
+      // DOMSubtreeModified
+      $('#search-result').on('DOMSubtreeModified', function() {
+        console.log('yo');
+      });
     } catch(e) {
       api.handleError(e);
     }
@@ -534,5 +538,15 @@ var app = app || {};
     } catch (e) {
       api.handleError("e: " + e);
     }
+  };
+
+  app.testMasonry = function() {
+    $(function(){
+      $('#search-result').masonry({
+          itemSelector: '.fb-card',
+          columnWidth: 200,
+          percentPosition: true
+      });
+    });
   };
 }(app));

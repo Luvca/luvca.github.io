@@ -69,16 +69,22 @@
                     <input id="fb-search-limit" class="custom-range" type="range" min="0" max="200" step="5" value="25">
                   </li>
                   <li class="nav-item">
-                    <div class="form-check form-check-inline">
-                      <input class="form-check-input hna-order-by" type="radio" name="fb-search-order-by" value="createdAt">
-                      <label class="form-check-label text-muted">Created at</label>
-                    </div>
-                    <div class="form-check form-check-inline">
-                      <input class="form-check-input hna-order-by" type="radio" name="fb-search-order-by" value="updatedAt" checked>
-                      <label class="form-check-label text-muted">Updated at</label>
-                    </div>
-                    <div class="form-check-inline float-right mr-0">
-                      <button id="fb-search-posts-button" type="button" class="btn btn-sm btn-outline-secondary">Search</button>
+                    <div class="form-row">
+                      <div class="col-auto">
+                        <div class="form-check form-check-inline">
+                          <input class="form-check-input hna-order-by" type="radio" name="fb-search-order-by" value="createdAt">
+                          <label class="form-check-label text-muted">Created at</label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                          <input class="form-check-input hna-order-by" type="radio" name="fb-search-order-by" value="updatedAt" checked>
+                          <label class="form-check-label text-muted">Updated at</label>
+                        </div>
+                      </div>
+                      <div class="col-auto">
+                        <div class="form-inline mr-0">
+                          <button id="fb-search-posts-button" type="button" class="btn btn-sm btn-outline-secondary">Search</button>
+                        </div>
+                      </div>
                     </div>
                   </li>
                 </ul>
@@ -199,7 +205,7 @@
     </div>
 
     <!-- Edit Dialog -->
-    <div class="modal" id="editDialog" tabindex="-1" role="dialog">
+    <div class="modal" id="editDialog" tabindex="-1" role="dialog" data-backdrop="static">
       <div class="modal-dialog modal-dialog-scrollable" role="document">
         <div class="modal-content">
           <div class="modal-header">
@@ -349,7 +355,7 @@
     </div>
 
     <!-- Dropbox Dialog -->
-    <div class="modal" id="fb-dropbox-dialog" tabindex="-1" role="dialog">
+    <div class="modal" id="fb-dropbox-dialog" tabindex="-1" role="dialog" data-backdrop="static">
       <div class="modal-dialog" role="document">
         <div class="modal-content">
           <div class="modal-header">

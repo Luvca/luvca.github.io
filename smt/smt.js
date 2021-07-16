@@ -11,7 +11,108 @@ var smt = smt || {};
     authDomain: 'fruit-basket-data.firebaseapp.com'
   });
 
-  smt.db = firebase.firestore();
+  var debug = false;
+  if (!debug) {
+    smt.db = firebase.firestore();
+  } else {
+    smt.db = {};
+    smt.db.collection = function(type) {
+      return {
+        get: function() {
+          return {
+            then: function(callback) {
+              console.log('1' + type);
+              var result;
+              if (type === 'types') {
+                result = [
+                  {id: 'photo'}
+                ];
+              } else if (type === 'albums') {
+                result = [];
+              } else if (type === 'tags') {
+                result = [];
+              } else if (type === 'posts') {
+                result = [];
+              }
+              callback(result);
+            }
+          }
+        },
+        orderBy: function() {
+          return {
+            get: function() {
+              return {
+                then: function() {
+                  console.log('2' + type);
+                  return {
+                    catch: function() {
+                    }
+                  }
+                }
+              }
+            },
+            limit: function () {
+              return {
+                get: function() {
+                  return {
+                    then: function(callback) {
+                      callback({
+                        docs: [
+                          {
+                            id: 'fujiko',
+                            data: function() {
+                              return {
+                                title: 'DD54',
+                                urls: ['img/DD54.jpg'],
+                                type: 'photo'
+                              }
+                            }
+                          }, {
+                            id: 'shizuka',
+                            data: function() {
+                              return {
+                                title: 'ED70',
+                                urls: ['img/ED70.jpg'],
+                              }
+                            }
+                          }, {
+                            data: function() {
+                              return {
+                                title: 'EB10',
+                                urls: ['img/EB10.jpg'],
+                              }
+                            }
+                          }, {
+                            data: function() {
+                              return {
+                                title: 'ヨ9000',
+                                urls: ['img/yo9000.jpg'],
+                              }
+                            }
+                          }
+                        ]
+                      });
+                      return {
+                        catch: function() {
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        limit: function() {
+          return {
+            get: function() {
+  
+            }
+          }
+        }
+      }
+    };
+  }
   smt.settings = {};
   smt.clipboard = [];
   smt.opacity = 0;
