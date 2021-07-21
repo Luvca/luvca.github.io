@@ -55,3 +55,10 @@ img.firebaseui-idp-icon {
     column-count: 1;
   }
 }
+
+@media screen and (min-width: 993px) {
+  .bricklayer-column-sizer {
+    /* divide by 3. */
+    width: 33.3%;
+  }
+}

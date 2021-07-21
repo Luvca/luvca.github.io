@@ -13,7 +13,7 @@ var app = app || {};
 
       gapi.load('client:auth2', app.initClient);
       view = smt.import('view').create();
-
+      
       // Common
       $(document).on('click', '.fb-close-dialog', app.closeDialog);
       $('#fb-copy-user-button').on('click', true, app.copyUser);

@@ -111,6 +111,7 @@ smt.export('view', function(smt, undefined) {
       var typeHolder = $editDialog.find('.fb-post-types');
       var typeTemplate = typeHolder.html();
       var lastVisible;
+      var bricklayer;
 
       return {
         reset: function() {
@@ -164,20 +165,24 @@ smt.export('view', function(smt, undefined) {
         },
 
         showPosts: function(result) {
+          if (!bricklayer)
+            bricklayer = new Bricklayer(document.querySelector('.bricklayer'));
           if (result.docs.length === 0) {
             $infoMessageArea.append('No more posts.');
             $readNextButton.addClass('d-none');
           } else {
             lastVisible = result.docs[result.docs.length - 1];
             var divider = $('<div>');
-            $resultArea.append(divider);
+            //$resultArea.append(divider);
+            bricklayer.append(divider.get(0));
             result.docs.forEach((ref) => {
               var fields = ref.data();
               try {
                 fields.createdAt = fields.createdAt.toDate();
               } catch {}
               createCard({id: ref.id, fields: fields}, $cardTemplate, function(card) {
-                $resultArea.append(card);
+                //$resultArea.append(card);
+                bricklayer.append(card);
                 api.setOpacity();
               });
             });
