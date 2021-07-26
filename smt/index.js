@@ -69,9 +69,8 @@ var app = app || {};
       // Settings Dialog
       $('#fb-save-settings-button').on('click', app.saveSettings);
       // DOMSubtreeModified
-      $('#search-result').on('DOMSubtreeModified', function() {
-        console.log('yo');
-      });
+      //$('#search-result').on('DOMSubtreeModified', function() {
+      //});
     } catch(e) {
       api.handleError(e);
     }
