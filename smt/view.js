@@ -166,8 +166,8 @@ smt.export('view', function(smt, undefined) {
         },
 
         showPosts: function(result) {
-          if (!bricklayer)
-            bricklayer = new Bricklayer(document.querySelector('.bricklayer'));
+          //if (!bricklayer)
+          //  bricklayer = new Bricklayer(document.querySelector('.bricklayer'));
           if (result.docs.length === 0) {
             $infoMessageArea.append('No more posts.');
             $readNextButton.addClass('d-none');
@@ -310,8 +310,8 @@ smt.export('view', function(smt, undefined) {
         },
 
         updatePost: function(post) {
-          if (!bricklayer)
-            bricklayer = new Bricklayer(document.querySelector('.bricklayer'));
+          //if (!bricklayer)
+          //  bricklayer = new Bricklayer(document.querySelector('.bricklayer'));
           try {
             post.fields.createdAt = post.fields.createdAt.toDate();
           } catch {}
