@@ -411,7 +411,7 @@ smt.export('view', function(smt, undefined) {
               if (a.name < b.name) return -1;
               else return 1;
             }).forEach((item) => {
-              if (item['.tag'] === 'file' && item.name.split('.').pop().match(/jpe?g|png|gif|bmp/i)) {
+              if (item['.tag'] === 'file' && item.name.split('.').pop().match(/jpe?g|png|gif|bmp|webp/i)) {
                 var dropboxItem = $.parseHTML(dropboxImageTemplate);
                 $dropboxImages.append(dropboxItem);
                 dropbox.listShare(item.id).done((res) => {
