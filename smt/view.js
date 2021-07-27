@@ -120,6 +120,7 @@ smt.export('view', function(smt, undefined) {
           $infoMessageArea.empty();
           $readNextButton.addClass('d-none');
           lastVisible = undefined;
+          bricklayer = new Bricklayer(document.querySelector('.bricklayer'));
         },
 
         setupSearch: function() {
