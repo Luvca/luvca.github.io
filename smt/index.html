@@ -155,9 +155,9 @@
           <div class="btn-group dropup">
             <button type="button" class="btn btn-sm btn-outline-secondary pt-0 dropdown-toggle" data-toggle="dropdown">Search</button>
             <div class="dropdown-menu">
-              <a class="dropdown-item fb-google-title" href="javascript:return false;">Google</a>
-              <a class="dropdown-item fb-nyaa" href="javascript:return false;">Nyaa</a>
-              <a class="dropdown-item fb-japanhub" href="javascript:return false;">JapanHub</a>
+              <a class="dropdown-item fb-google-title" href="javascript:void(0);">Google</a>
+              <a class="dropdown-item fb-nyaa" href="javascript:void(0);">Nyaa</a>
+              <a class="dropdown-item fb-japanhub" href="javascript:void(0);">JapanHub</a>
             </div>
           </div>
           <div>
@@ -539,13 +539,15 @@
     <script src="view.js"></script>
     <script src="index.js"></script>
     <script>
-      firebase.auth().onAuthStateChanged((user) => {
-        if (user) {
-          $('#authenticated-area').removeClass('d-none');
-        } else {
-          location.href = 'signin.html';
-        }
-      });
+      (function() {
+        firebase.auth().onAuthStateChanged((user) => {
+          if (user) {
+            $('#authenticated-area').removeClass('d-none');
+          } else {
+            location.href = 'signin.html';
+          }
+        });
+      })();
     </script>
   </body>
 </html>
