@@ -52,6 +52,7 @@ var app = app || {};
       $(document).on('click', '.fb-up-url-button', app.upUrl);
       $(document).on('click', '.fb-down-url-button', app.downUrl);
       $(document).on('click', '.fb-delete-url-button', app.deleteUrl);
+      $(document).on('click', '.fb-nyaa-button', app.addNyaa);
       $('#fb-add-album-button').on('click', app.addAlbum);
       $('#fb-save-album-button').on('click', app.saveAlbum);
       $('#fb-add-woman-button').on('click', app.addWoman);
@@ -537,6 +538,10 @@ var app = app || {};
     } catch (e) {
       api.handleError("e: " + e);
     }
+  };
+
+  app.addNyaa = function() {
+    view.addNyaa();
   };
 
   app.testMasonry = function() {

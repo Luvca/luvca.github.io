@@ -30,7 +30,8 @@ var smt = smt || {};
               } else if (type === 'albums') {
                 result = [];
               } else if (type === 'tags') {
-                result = [];
+                result = [
+                ];
               } else if (type === 'posts') {
                 result = [];
               }

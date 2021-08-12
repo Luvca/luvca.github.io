@@ -74,7 +74,10 @@ smt.export('view', function(smt, undefined) {
         var badge = $.parseHTML(template);
         $(badge).text(e);
         if (e === 'Video Memorable')
-          $(badge).css('background-color', 'rgb(216, 191, 216, 1)');
+        $(badge).addClass('fb-post-album-memorable');
+        else if (e === 'Nyaa') {
+          $(badge).addClass('fb-post-tag-nyaa');
+        }
         $(area).append(badge);
       });
     }
@@ -615,6 +618,15 @@ smt.export('view', function(smt, undefined) {
           return {
             dropboxCode: $dropboxCode.val()
           };
+        },
+
+        addNyaa: function() {
+          var newAll = tags.getAllSelectPure();
+          var newValue = $tagsSelect.value();
+          newValue.push('Nyaa');
+          $('#fb-tag-dialog').modal('hide');
+          $tagsSelect = createSelectPure('#fb-post-tags', newAll, newValue);
+          $tagsSelectSearch = createSelectPure('#fb-post-tags-search', newAll);
         }
       };
     }
